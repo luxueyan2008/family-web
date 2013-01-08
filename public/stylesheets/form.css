@@ -1,1 +1,9 @@
-.test{vertical-aglin:middle}h1{font-size:21px}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/wamp\/www\/family-web\/public\/sass\/form\.scss}line{font-family:\000032}}
+.test {
+  vertical-aglin: middle;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/wamp\/www\/family-web\/public\/sass\/form\.scss}line{font-family:\000033}}
+h1 {
+  font-size: 21px;
+}

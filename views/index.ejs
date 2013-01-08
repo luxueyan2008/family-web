@@ -1,2 +1,5 @@
-<h1><%=title%></h1>
-<p>Welcome to <%=title%></p>
+<% script('foo.js') -%>
+<% stylesheet('foo.css') -%>
+<h1>I am the <%=title%> template</h1>
+<% block('header', "<p>I'm in the header.</p>") -%>
+<% block('footer', "<p>I'm in the footer.</p>") -%>

@@ -50,7 +50,7 @@ module.exports = function(grunt) {
     compass: {
       prod: {
         specify: 'public/sass/**/*.scss',
-        outputstyle: 'compressed',
+        outputstyle: 'expanded',
         linecomments: false,
         src: 'public/sass',
         dest: 'public/stylesheets',
@@ -64,12 +64,12 @@ module.exports = function(grunt) {
       files: ['grunt.js', 'public/**/*.js']
     },
     watch: {
-      js:{
+      js: {
         files: '<config:lint.files>',
         tasks: 'min'
       },
-      scss:{
-        files: [ 'public/sass/**/*.scss' ],
+      scss: {
+        files: [ 'public/sass/**/*.scss','grunt.js' ],
         tasks: [ 'compass:prod' ]
       }
     },
