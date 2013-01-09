@@ -15,13 +15,13 @@ var express = require('express')
 var app = express();
 app.engine('ejs', engine);
 //添加 md 文件的渲染引擎
-app.engine('md', function(path, options, fn){  
+app.engine('md', function(path, options, fn){
   var fs = require('fs');
-  fs.readFile(path, 'utf8', function(err, str){  
-    if (err) return fn(err);  
-    str = markdown.parse(str).toString();  
-    fn(null, str);  
-  });  
+  fs.readFile(path, 'utf8', function(err, str){
+    if (err) return fn(err);
+    str = markdown.parse(str).toString();
+    fn(null, str);
+  });
 });
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);

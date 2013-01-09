@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>It's <%=title%></title>
-    <%-scripts%>
+    <% stylesheet('stylesheets/layout.css') -%>
+    <% stylesheet('stylesheets/icon.css') -%>
     <%-stylesheets%>
   </head>
   <body>
@@ -15,5 +16,9 @@
     <footer>
       <%-blocks.footer%>
     </footer>
+    <% script('javascripts/web/jquery-common.js') -%>
+    <% script('javascripts/web/backbone-common.js') -%>
+    <% script('javascripts/web/UM-jquery-common.js') -%>
+    <%-scripts%>
   </body>
 </html>

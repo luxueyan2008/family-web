@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     min: {
       dist: {
         src: [
-          'public/javascripts/libs/jquery-1.7.2.min.js', 
+          'public/javascripts/libs/jquery-1.7.2.min.js',
           'public/javascripts/libs/jquery-ui-1.8.23.custom.min.js',
           'public/javascripts/libs/jquery.easing.1.3.js',
           'public/javascripts/libs/jquery.blockUI.min.js',
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
       },
       dist2:{
         src: [
-          'public/javascripts/libs/underscore.min.js', 
+          'public/javascripts/libs/underscore.min.js',
           'public/javascripts/libs/underscore.string.min.js',
           'public/javascripts/libs/backbone.min.js'
         ],
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
       },
       dist3:{
         src: [
-          'public/javascripts/libs/umengTools.js', 
+          'public/javascripts/libs/umengTools.js',
           'public/javascripts/libs/umeng-plugin.js'
         ],
         dest: 'public/javascripts/web/UM-jquery-common.js',
