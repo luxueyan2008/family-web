@@ -32,7 +32,10 @@
   },
   "keywords": [],
   "dependencies": {
+    "express": ">=3.0.0",
     "ejs-locals": "~1.0.2",
-    "markdown-js": "*"
+    "markdown-js": "*",
+    "mongodb": ">= 0.9.9",
+    "connect-mongo": ">=0.1.7"
   }
 }

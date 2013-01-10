@@ -6,10 +6,10 @@
 var express = require('express')
   , routes = require('./routes')
   , engine = require('ejs-locals')
-  , user = require('./routes/user')
-  , md = require('./routes/markdown')
   , markdown = require('markdown-js')
   , http = require('http')
+  , MongoStore = require('connect-mongo')(express) //将会话session存储于mongo数据库的模块
+  , settings = require('./settings')
   , path = require('path');
 
 var app = express();
@@ -31,7 +31,15 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(app.router);
+  app.use(express.cookieParser());
+  app.use(express.session({
+    secret: settings.cookieSecret,
+    store: new MongoStore({
+      db: settings.db
+    })
+  }));
+  // app.use(app.router);
+  app.use(routes(app));// 这样用的目的是将路由分离出去
   app.locals({
     _layoutFile: true
   });
@@ -42,9 +50,8 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
-app.get('/users', user.list);
-app.get('/markdown', md.demo);
+
 http.createServer(app).listen(app.get('port'), function(){
+  // console.log(express);
   console.log("Express server listening on port " + app.get('port'));
 });
