@@ -38,7 +38,7 @@ app.configure(function(){
       db: settings.db
     })
   }));
-  // app.use(app.router);
+  app.locals.isDev = true;//全局变量
   app.use(routes(app));// 这样用的目的是将路由分离出去
   app.locals({
     _layoutFile: true

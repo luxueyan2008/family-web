@@ -6,7 +6,7 @@ var user = require('./user')
   , md = require('./markdown');
 module.exports = function (app) {
 	app.get('/', function(req, res){
-	  res.render('index', { title: 'Express' });
+	  res.render('index', { title: '山炮哥之家' });
 	});
 
 	app.get('/users', user.list);
