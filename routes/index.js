@@ -6,9 +6,11 @@ var user = require('./user')
   , md = require('./markdown');
 module.exports = function (app) {
 	app.get('/', function(req, res){
-	  res.render('index', { title: '山炮哥之家' });
+	  	res.render('index', { title: '山炮哥之家-首页' });
 	});
-
+	app.get('/reg',function(req, res){
+		res.render('reg',{ title: '山炮哥之家-注册' });
+	});
 	app.get('/users', user.list);
 	app.get('/markdown', md.demo);
 	return app.router;
