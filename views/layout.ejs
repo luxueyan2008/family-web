@@ -2,20 +2,30 @@
 <html>
   <head>
     <title>It's <%=title%></title>
-    <% stylesheet('stylesheets/base.css') -%>
+    <% stylesheet('/stylesheets/base.css') -%>
     <% if (isDev) { %>
-      <% stylesheet('bootstrap/css/bootstrap.css') -%>
-      <% stylesheet('bootstrap/css/bootstrap-responsive.css') -%>
+      <% stylesheet('/bootstrap/css/bootstrap.css') -%>
+      <% stylesheet('/bootstrap/css/bootstrap-responsive.css') -%>
     <% }else { %>
-      <% stylesheet('bootstrap/css/bootstrap.min.css') -%>
-      <% stylesheet('bootstrap/css/bootstrap-responsive.min.css') -%>
+      <% stylesheet('/bootstrap/css/bootstrap.min.css') -%>
+      <% stylesheet('/bootstrap/css/bootstrap-responsive.min.css') -%>
     <% } %>
-    <% stylesheet('stylesheets/layout.css') -%>
+    <% stylesheet('/stylesheets/layout.css') -%>
     <%-stylesheets%>
   </head>
   <body class="fw">
     <% include header -%>
     <div id="container" class="container">
+      <% if (success != '') { %>    
+      <div class="alert alert-success">
+        <%= success %>
+      </div>
+      <% } %> 
+      <% if (error != '') { %>    
+      <div class="alert alert-error">
+        <%= error %>
+      </div>
+      <% } %>    
       <%-body -%>
       <hr />
       <footer>
@@ -23,9 +33,9 @@
       </footer>
     </div>
     
-    <% script('javascripts/web/jquery-common.js') -%>
-    <% script('javascripts/web/backbone-common.js') -%>
-    <% script('bootstrap/js/bootstrap.min.js') -%>
+    <% script('/javascripts/web/jquery-common.js') -%>
+    <% script('/javascripts/web/backbone-common.js') -%>
+    <% script('/bootstrap/js/bootstrap.min.js') -%>
     <%-scripts%>
   </body>
 </html>

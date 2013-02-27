@@ -9,9 +9,15 @@
       <a class="brand" href="/">山炮哥之家</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li class="<% if (req.route.path == '/'){ %>active<% } %>"><a href="/">首页</a></li>
-          <li class="<% if (req.route.path == '/login'){ %>active<% } %>"><a href="/login">登入</a></li>
-          <li class="<% if (req.route.path == '/reg'){ %>active<% } %>"><a href="/reg">注册</a></li>
+          <% if(req.session.user) { %>
+            <li><a href="/u/<%= req.session.user.name %>">欢迎您,<%= req.session.user.name %></a></li> 
+            <li class="<% if (req.route.path == '/'){ %>active<% } %>"><a href="/">首页</a></li>
+            <li class="<% if (req.route.path == '/logout'){ %>active<% } %>"><a href="/logout">登出</a></li>
+          <% } else { %>
+            <li class="<% if (req.route.path == '/'){ %>active<% } %>"><a href="/">首页</a></li>
+            <li class="<% if (req.route.path == '/login'){ %>active<% } %>"><a href="/login">登入</a></li>
+            <li class="<% if (req.route.path == '/reg'){ %>active<% } %>"><a href="/reg">注册</a></li>
+          <% } %>
         </ul>
       </div>
     </div>
