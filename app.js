@@ -73,9 +73,10 @@ app.configure('development', function(){
     next();
   });
 });
-
-
-http.createServer(app).listen(app.get('port'), function(){
-  // console.log(express);
-  console.log("Express server listening on port " + app.get('port'));
-});
+if (!module.parent) {
+  http.createServer(app).listen(app.get('port'), function(){
+    // console.log(express);
+    console.log("Express server listening on port " + app.get('port'));
+  });
+}
+module.exports = app;

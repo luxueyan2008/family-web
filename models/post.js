@@ -1,4 +1,5 @@
 var mongodb = require('./db');
+var moment = require('moment');
 
 function Post(username, post, time) {
 	this.user = username;
@@ -15,7 +16,7 @@ Post.prototype.save = function save(callback) {
 	var post = {
 		user: this.user,
 		post: this.post,
-		time: this.time,
+		time: moment(this.time).format('YYYY年MM月DD日 HH:mm:ss'),
 	};
 	mongodb.open(function(err, db) {
 		if (err) {
