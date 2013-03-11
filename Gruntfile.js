@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     // qunit: {
     //   files: ['test/**/*.html']
     // },
-    min: {
+    uglify: {
       dist: {
         src: [
           'public/javascripts/libs/jquery-1.7.2.min.js',
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      files: ['gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+      files: ['Gruntfile.js', 'public/**/*.js'],
       options: {
         // options here to override JSHint defaults
         globals: {
@@ -85,11 +85,11 @@ module.exports = function(grunt) {
     watch: {
       js: {
         files: '<%= jshint.files %>',
-        tasks: 'minify'
+        tasks: 'uglify'
       },
       scss: {
         files: [ 'public/sass/**/*.scss','grunt.js' ],
-        tasks: [ 'compass:prod' ]
+        tasks: [ 'compass' ]
       }
       // files: ['<%= jshint.files %>'],
       // tasks: ['jshint', 'qunit']
