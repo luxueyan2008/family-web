@@ -14,13 +14,13 @@ module.exports = function (app) {
 			}
 			res.render('index', {
 				title: '山炮哥之家-首页',
-				posts: posts,
+				posts: posts
 			});
 		});
 	});
 	app.get('/login', checkNotLogin, function(req, res) {
 		res.render('login', {
-			title: '用户登入',
+			title: '用户登入'
 		});
 	});
 	app.get('/logout', checkLogin, function(req, res) {
@@ -29,7 +29,9 @@ module.exports = function (app) {
 		res.redirect('/');
 	});
 	app.get('/reg', function(req, res){
-		res.render('reg',{title: '山炮哥之家-注册'});
+		res.render('reg', {
+			title: '山炮哥之家-注册'
+		});
 	});
 	app.post('/reg', user.reg);
 	app.post('/login', checkNotLogin, user.login);

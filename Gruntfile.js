@@ -69,10 +69,13 @@ module.exports = function(grunt) {
     },
     combo: {
       build: {
-        src: 'src/*.js',
-        dest: 'dist/main.combo.js',
-        initModules: 'main.js',
-        cwd: './'
+        files: [{
+          expand: true,
+          cwd: 'public/javascripts/demo/',
+          src: '**/*.js',
+          dest: 'public/javascripts/web',
+          ext: '.combo.js'
+        }]
       }
     },
     compass: {
