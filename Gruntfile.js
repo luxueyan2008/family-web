@@ -125,6 +125,6 @@ module.exports = function(grunt) {
   // grunt.loadNpmTasks('grunt-cmd-combo');
   // grunt.registerTask('test', ['jshint', 'qunit']);
 
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify','compass','combo','spm-build']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'compass', 'spm-build']);
 
 };
