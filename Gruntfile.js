@@ -67,17 +67,32 @@ module.exports = function(grunt) {
         }
       }
     },
-    combo: {
-      build: {
-        files: [{
-          expand: true,
-          cwd: 'public/javascripts/demo/',
-          src: '**/*.js',
-          dest: 'public/javascripts/web',
-          ext: '.combo.js'
-        }]
-      }
-    },
+    // combo: {
+    //   build: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: 'public/javascripts/demo/',
+    //       src: '**/*.js',
+    //       dest: 'public/javascripts/web',
+    //       ext: '.combo.js'
+    //     }]
+    //   }
+    // },
+
+    // 'spm-concat': {
+    //   options: {
+    //     // Task-specific options go here.
+    //   },
+    //   seajs: {
+    //     filter: function(src){
+    //       return src.indexOf('config.js') == -1;
+    //     },
+    //     src: [
+    //       'public/javascripts/demo/*.js',
+    //     ],
+    //     dest: 'web/main.js',
+    //   },
+    // },
     compass: {
       dist: {
         options: {
@@ -98,16 +113,18 @@ module.exports = function(grunt) {
       // tasks: ['jshint', 'qunit']
     }
   });
-
+  var pkg = grunt.file.readJSON('package.json');
+  require('grunt-spm-build').init(grunt, {pkg: pkg});
+  grunt.loadNpmTasks('grunt-spm-build');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   // grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
   // grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-cmd-combo');
+  // grunt.loadNpmTasks('grunt-cmd-combo');
   // grunt.registerTask('test', ['jshint', 'qunit']);
 
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify','compass','combo']);
+  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify','compass','combo','spm-build']);
 
 };
