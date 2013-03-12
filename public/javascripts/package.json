@@ -1,0 +1,22 @@
+{
+    "root": "/",
+    "version": "",
+    "author": "demo",
+    "contributors"  : ["demo"],
+    "name":"",
+    "output":{"main.js":"."},
+    "dependencies": {
+        "$": "$"
+    },
+    "spmConfig": {
+	    "*": {
+	        "idRule": "{{moduleName}}",
+	        "with-debug": "",
+	        "throwErrorOnDepNotFound": true
+	    },
+	    
+	    "deploy": {
+	        "to": "./web/"
+	    }
+	}
+}

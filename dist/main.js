@@ -1,1 +1,0 @@
-define("[object Object]/family-web/0.1.0/main",["./a","jquery"],function(a){var b=a("./a");b()}),define("[object Object]/family-web/0.1.0/a",["jquery"],function(a,b){a("jquery"),b.a=function(){alert("test")}});
