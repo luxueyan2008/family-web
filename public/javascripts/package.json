@@ -1,10 +1,10 @@
 {
     "root": "/",
-    "version": "",
+    "version": "1.0.0",
     "author": "demo",
     "contributors"  : ["demo"],
-    "name":"",
-    "output":{"main.js":"."},
+    "name":"demo",
+    "output":{},
     "dependencies": {
         "$": "$"
     },
@@ -16,7 +16,7 @@
 	    },
 	    
 	    "deploy": {
-	        "to": "./web/"
+	        "to": "./sea-modules/"
 	    }
 	}
 }
