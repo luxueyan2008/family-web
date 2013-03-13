@@ -32,24 +32,13 @@
     "grunt-contrib-uglify": "~0.1.2",
     "grunt-contrib-jshint": "~0.2.0",
     "grunt-contrib-concat": "~0.1.3",
+    "grunt-contrib-qunit": "~0.2.0",
     "grunt-contrib-watch": "~0.3.1",
     "grunt-contrib-compass": "~0.1.3",
     "grunt-contrib-copy": "*",
     "grunt-contrib-connect": "*",
-    "grunt-spm-build": "*"
-  },
-  "spm": {
-    "alias": {
-      "class": "arale/class/1.0.0/class",
-      "jQuery": "public/javascripts/jquery-1.9.1.min.js",
-      "$": "public/javascripts/jquery-1.9.1.min.js"
-    },
-    "output": {
-      "main.js": "."
-    },
-    "engines": {
-      "seajs": "seajs-modules/seajs/1.3.1/sea.js"
-    }
+    "grunt-cmd-concat": "*",
+    "grunt-cmd-transport": "*"
   },
   "keywords": [],
   "dependencies": {

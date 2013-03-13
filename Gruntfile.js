@@ -67,6 +67,21 @@ module.exports = function(grunt) {
         }
       }
     },
+    transport: {
+      demo: {
+        options: {
+          format: '{{filename}}',
+          debug: false
+        },
+        // src: 'public/javascripts/src/**/*.js',
+        // dest: '../main.js'
+        files: [{
+          cwd: 'public/javascripts/src',
+          src: ['a.js','main.js'],
+          dest: 'public/javascripts/dist'
+        }] 
+      }
+    },
     // combo: {
     //   build: {
     //     files: [{
@@ -77,21 +92,6 @@ module.exports = function(grunt) {
     //       ext: '.combo.js'
     //     }]
     //   }
-    // },
-
-    // 'spm-concat': {
-    //   options: {
-    //     // Task-specific options go here.
-    //   },
-    //   seajs: {
-    //     filter: function(src){
-    //       return src.indexOf('config.js') == -1;
-    //     },
-    //     src: [
-    //       'public/javascripts/demo/*.js',
-    //     ],
-    //     dest: 'web/main.js',
-    //   },
     // },
     compass: {
       dist: {
@@ -113,9 +113,7 @@ module.exports = function(grunt) {
       // tasks: ['jshint', 'qunit']
     }
   });
-  var pkg = grunt.file.readJSON('package.json');
-  require('grunt-spm-build').init(grunt, {pkg: pkg});
-  grunt.loadNpmTasks('grunt-spm-build');
+  grunt.loadNpmTasks('grunt-cmd-transport');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   // grunt.loadNpmTasks('grunt-contrib-qunit');
@@ -125,6 +123,6 @@ module.exports = function(grunt) {
   // grunt.loadNpmTasks('grunt-cmd-combo');
   // grunt.registerTask('test', ['jshint', 'qunit']);
 
-  grunt.registerTask('default', ['jshint', 'uglify', 'compass', 'spm-build']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'compass', 'concat']);
 
 };

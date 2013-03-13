@@ -4,6 +4,7 @@
  */
 var user = require('./user')
 	, weibo = require('./weibo')
+	, demo = require('./demo')
 	, Post = require('../models/post.js')
   	, md = require('./markdown');
 module.exports = function (app) {
@@ -39,6 +40,7 @@ module.exports = function (app) {
 	app.get('/u/:user', weibo.list);
 	app.get('/users', user.list);
 	app.get('/markdown', md.demo);
+	app.get('/demo/gravity', demo.gravity);
 
 	return app.router;
 };
