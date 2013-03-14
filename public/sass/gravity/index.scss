@@ -32,7 +32,7 @@ $colorBase2:#ff0;
 	background:none!important;
 }
 .demo{
-	@include box-shadow(0,0,5px,rgba(0,0,0,.2));
+	@include box-shadow(0 0 5px rgba(0,0,0,.2));
 	@include border-radius(10px);
 }
 .gravity{
@@ -49,19 +49,39 @@ $colorBase2:#ff0;
 		text-align:center;
 		margin:20px;
 		.inner{
+			@include transform-origin(50%,0);
 			@include flexbox;
 			@include justify-content(center);
 			@include align-items;
-			font-size:50px;
-			width:60px;
+			font-size:3em;
+			margin:0 10px;
+			@include transition(all .5s ease-in-out);
+			@include flex(1);
+			// width:60px;
 			height:90px;
 			@include border-radius(10px);
 			@include box-shadow(inset 0 1px 0px white,0 0 5px rgba(0,0,0,.5));
+			&:hover{
+				@include flex(2);
+			}
+			&::before{
+				display:block;
+				content:"";
+				width:6px;
+				height:6px;
+				@include border-radius(3px);
+				position:absolute;
+				top:5px;
+				left:50%;
+				margin-left:-4px;
+				background:greenyellow;
+				@include box-shadow(0 0 0 2px rgba(0,0,0,.8));
+			}
 		}
 	}
 	@for $i from 1 through 10 {
 		li:nth-of-type(#{$i}) .inner{
-			@include background(linear-gradient(top,darken($colorBase, $i*5%),lighten($colorBase, $i*10%)));
+			@include background(linear-gradient(top,darken($colorBase, $i*5%),lighten($colorBase2, $i*5%)));
 		} 
 	}
 }
