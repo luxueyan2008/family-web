@@ -1,1 +1,0 @@
-seajs.use("a",function(a){a.a("demo")});

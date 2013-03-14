@@ -1,0 +1,1 @@
+define("demospm/demo/1.0.0/a",["$"],function(a,b){var d=a("$");b.a=function(a){return function(){alert(d("a").text()+("--你好!"+(a||"nobody")))}}}),define("demospm/demo/1.0.0/b",["./a","$"],function(a,b){var c=a("./a").a;b.b=c("demo 用户")});

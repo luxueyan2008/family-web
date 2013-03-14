@@ -1,1 +1,0 @@
-define(function(a,b){var d=a("$");b.a=function(a){alert(d("a").text()+("--你好!"+(a||"nobody")))}});

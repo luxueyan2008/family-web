@@ -96,7 +96,11 @@ module.exports = function(grunt) {
     compass: {
       dist: {
         options: {
-          config: 'public/config.rb'
+          config: 'public/config.rb',
+          specify: 'public/sass/**/*.scss',
+          sassDir: 'public/sass',
+          cssDir: 'public/stylesheets',
+          outputStyle: 'expand'
         }
       }
     },
@@ -106,7 +110,7 @@ module.exports = function(grunt) {
         tasks: 'uglify'
       },
       scss: {
-        files: [ 'public/sass/**/*.scss','grunt.js' ],
+        files: [ 'public/sass/**/*.scss','Gruntfile.js' ],
         tasks: [ 'compass' ]
       }
       // files: ['<%= jshint.files %>'],

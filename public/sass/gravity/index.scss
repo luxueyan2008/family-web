@@ -1,0 +1,67 @@
+@import "compass/css3","../icon_font";
+$colorBase:#0f0;
+$colorBase2:#ff0;
+@mixin flexbox{
+	display:-webkit-flex;
+	display:-moz-flex;
+	display:flex;
+}
+@mixin flex-wrap($wrap:wrap){
+	-webkit-flex-wrap:$wrap;
+	-moz-flex-wrap:$wrap;
+	flex-wrap:$wrap;
+}
+@mixin justify-content($align:space-around){
+	-webkit-justify-content:$align;
+	-moz-justify-content:$align;
+	justify-content:$align;
+}
+@mixin align-items($align:center){
+	-webkit-align-items:$align;
+	-moz-align-items:$align;
+	align-items:$align;
+}
+@mixin flex($size:1){
+	-webkit-flex:$size;
+	-moz-flex:$size;
+	flex:$size;
+}
+[class^="icon-"], [class*=" icon-"]{
+	width:auto!important;
+	height:auto!important;
+	background:none!important;
+}
+.demo{
+	@include box-shadow(0,0,5px,rgba(0,0,0,.2));
+	@include border-radius(10px);
+}
+.gravity{
+	@include flexbox;
+	@include justify-content;
+	@include flex-wrap(wrap);
+	li{
+		@include border-radius(10px);
+		@include flex(20% 1);
+		@include flexbox;
+		@include justify-content;
+		background:silver;
+		padding:20px;
+		text-align:center;
+		margin:20px;
+		.inner{
+			@include flexbox;
+			@include justify-content(center);
+			@include align-items;
+			font-size:50px;
+			width:60px;
+			height:90px;
+			@include border-radius(10px);
+			@include box-shadow(inset 0 1px 0px white,0 0 5px rgba(0,0,0,.5));
+		}
+	}
+	@for $i from 1 through 10 {
+		li:nth-of-type(#{$i}) .inner{
+			@include background(linear-gradient(top,darken($colorBase, $i*5%),lighten($colorBase, $i*10%)));
+		} 
+	}
+}

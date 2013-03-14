@@ -1,16 +1,15 @@
 {
-    "root": "/",
+    "root": "demospm",
     "version": "1.0.0",
     "author": "demo",
     "contributors"  : ["demo"],
     "name":"demo",
-    "output":{},
+    "output":{"b.js":"."},
     "dependencies": {
         "$": "$"
     },
     "spmConfig": {
 	    "*": {
-	        "idRule": "{{moduleName}}",
 	        "with-debug": "",
 	        "throwErrorOnDepNotFound": true
 	    },
