@@ -37,8 +37,8 @@
     "grunt-contrib-compass": "~0.1.3",
     "grunt-contrib-copy": "*",
     "grunt-contrib-connect": "*",
-    "grunt-cmd-concat": "*",
-    "grunt-cmd-transport": "*"
+    "grunt-cmd-concat": "~0.2.2",
+    "grunt-cmd-transport": "~0.2.1"
   },
   "keywords": [],
   "dependencies": {

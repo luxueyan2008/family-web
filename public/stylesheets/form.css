@@ -8,3 +8,8 @@ h1 {
   font-size: 21px;
   color: red;
 }
+
+/* line 8, ../sass/form.scss */
+h2 {
+  font-size: 20px;
+}

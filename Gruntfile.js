@@ -24,6 +24,15 @@ module.exports = function(grunt) {
     // qunit: {
     //   files: ['test/**/*.html']
     // },
+    concat: {
+      options: {
+        paths: 'public/src',
+        include: 'relative'
+      },
+      demo: {
+        'dist/a.js': ['a.js', 'b.js'],
+      }
+    }
     uglify: {
       dist: {
         src: [
@@ -67,32 +76,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    transport: {
-      demo: {
-        options: {
-          format: '{{filename}}',
-          debug: false
-        },
-        // src: 'public/javascripts/src/**/*.js',
-        // dest: '../main.js'
-        files: [{
-          cwd: 'public/javascripts/src',
-          src: ['a.js','main.js'],
-          dest: 'public/javascripts/dist'
-        }] 
-      }
-    },
-    // combo: {
-    //   build: {
-    //     files: [{
-    //       expand: true,
-    //       cwd: 'public/javascripts/demo/',
-    //       src: '**/*.js',
-    //       dest: 'public/javascripts/web',
-    //       ext: '.combo.js'
-    //     }]
-    //   }
-    // },
     compass: {
       dist: {
         options: {
@@ -107,7 +90,7 @@ module.exports = function(grunt) {
     watch: {
       js: {
         files: '<%= jshint.files %>',
-        tasks: 'uglify'
+        tasks: 'uglify:dist3'
       },
       scss: {
         files: [ 'public/sass/**/*.scss','Gruntfile.js' ],
@@ -117,14 +100,13 @@ module.exports = function(grunt) {
       // tasks: ['jshint', 'qunit']
     }
   });
-  grunt.loadNpmTasks('grunt-cmd-transport');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   // grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-cmd-concat');
   // grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compass');
-  // grunt.loadNpmTasks('grunt-cmd-combo');
   // grunt.registerTask('test', ['jshint', 'qunit']);
 
   grunt.registerTask('default', ['jshint', 'uglify', 'compass', 'concat']);
