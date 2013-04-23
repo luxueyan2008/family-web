@@ -24,17 +24,43 @@ module.exports = function(grunt) {
     // qunit: {
     //   files: ['test/**/*.html']
     // },
-    concat: {
+    transport: {
       options: {
-        paths: 'public/src',
-        include: 'relative'
+        debug:false
       },
       demo: {
-        'dist/a.js': ['a.js', 'b.js'],
+        files: [{
+          cwd: 'public/javascripts/src',
+          src: '**/*',
+          dest: 'public/javascripts/dev'
+        }]
       }
-    }
+    },
+    concat: {
+      options: {
+        // paths: ['public/javascripts/dev'],
+        // relative: true,
+        // include: 'all'
+      },
+      demo: {
+        // src: 'public/javascripts/dev/b.js',
+        // dest: 'public/javascripts/dist/b.js'
+        files: {
+          'public/javascripts/dist/b.js': ['public/javascripts/dev/b.js'],
+          
+        }
+      }
+    },
     uglify: {
-      dist: {
+      seajs: {
+        files: [{
+          expand: true,
+          cwd: 'public/javascripts/dist/',
+          src: ['**/*','!main.js','!config.js'],
+          dest: 'public/javascripts/dist/'
+        }]
+      },
+      jquery: {
         src: [
           'public/javascripts/libs/jquery-1.7.2.min.js',
           'public/javascripts/libs/jquery-ui-1.8.23.custom.min.js',
@@ -46,7 +72,7 @@ module.exports = function(grunt) {
         dest: 'public/javascripts/web/jquery-common.js',
         separator: ';'
       },
-      dist2:{
+      backbone:{
         src: [
           'public/javascripts/libs/underscore.min.js',
           'public/javascripts/libs/underscore.string.min.js',
@@ -55,7 +81,7 @@ module.exports = function(grunt) {
         dest: 'public/javascripts/web/backbone-common.js',
         separator: ';'
       },
-      dist3:{
+      um:{
         src: [
           'public/javascripts/libs/umengTools.js',
           'public/javascripts/libs/umeng-plugin.js'
@@ -83,14 +109,16 @@ module.exports = function(grunt) {
           specify: 'public/sass/**/*.scss',
           sassDir: 'public/sass',
           cssDir: 'public/stylesheets',
+          debugInfo: true,
           outputStyle: 'expand'
         }
       }
     },
+
     watch: {
       js: {
         files: '<%= jshint.files %>',
-        tasks: 'uglify:dist3'
+        tasks: 'uglify:um'
       },
       scss: {
         files: [ 'public/sass/**/*.scss','Gruntfile.js' ],
@@ -104,11 +132,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   // grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-cmd-transport');
   grunt.loadNpmTasks('grunt-cmd-concat');
   // grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compass');
   // grunt.registerTask('test', ['jshint', 'qunit']);
 
-  grunt.registerTask('default', ['jshint', 'uglify', 'compass', 'concat']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'compass', 'transport', 'concat']);
 
 };
