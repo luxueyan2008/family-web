@@ -36,19 +36,33 @@ module.exports = function(grunt) {
         }]
       }
     },
+    yuidoc: {
+      compile: {
+        name: '<%= pkg.name %>',
+        description: '<%= pkg.description %>',
+        version: '<%= pkg.version %>',
+        url: '<%= pkg.homepage %>',
+        options: {
+          paths: 'public/javascripts/src',
+          outdir: 'public/docs'
+        }
+      }
+    },
     concat: {
       options: {
         // paths: ['public/javascripts/dev'],
         // relative: true,
-        // include: 'all'
+        include: 'all'
       },
       demo: {
         // src: 'public/javascripts/dev/b.js',
         // dest: 'public/javascripts/dist/b.js'
-        files: {
-          'public/javascripts/dist/b.js': ['public/javascripts/dev/b.js'],
-          
-        }
+        files: [{
+          expand: true,
+          cwd: 'public/javascripts/dev/',
+          src: ['**/*','!a.js'],
+          dest: 'public/javascripts/dist/'
+        }]
       }
     },
     uglify: {
@@ -123,6 +137,10 @@ module.exports = function(grunt) {
       scss: {
         files: [ 'public/sass/**/*.scss','Gruntfile.js' ],
         tasks: [ 'compass' ]
+      },
+      yuidoc: {
+        files: ['<%= yuidoc.options.files %>','Gruntfile.js'],
+        task: [ 'yuidoc' ]
       }
       // files: ['<%= jshint.files %>'],
       // tasks: ['jshint', 'qunit']
@@ -134,10 +152,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-cmd-transport');
   grunt.loadNpmTasks('grunt-cmd-concat');
+  grunt.loadNpmTasks('grunt-contrib-yuidoc');
   // grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compass');
   // grunt.registerTask('test', ['jshint', 'qunit']);
 
-  grunt.registerTask('default', ['jshint', 'uglify', 'compass', 'transport', 'concat']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'compass', 'transport', 'concat','yuidoc']);
 
 };

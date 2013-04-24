@@ -1,0 +1,11 @@
+{
+    "name": "山炮哥之家文档",
+    "description": "js api 文档",
+    "version": "1.0.0",
+    "url": "http://localhost:3000",
+    "options": {
+        "linkNatives": "true",
+        "outdir": "./docs",
+        "paths": "public/javascripts/src"
+    }
+}

@@ -1,0 +1,89 @@
+{
+    "project": {
+        "name": "family-web",
+        "description": "no",
+        "version": "0.1.0",
+        "url": "https://github.com/user/family-web"
+    },
+    "files": {
+        "public\\javascripts\\src\\c.js": {
+            "name": "public\\javascripts\\src\\c.js",
+            "modules": {
+                "基础模块": 1
+            },
+            "classes": {
+                "基础模块类": 1,
+                "基础集合类": 1,
+                "基础视图类": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "基础模块": {
+            "name": "基础模块",
+            "submodules": {},
+            "classes": {
+                "基础模块类": 1,
+                "基础集合类": 1,
+                "基础视图类": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "public\\javascripts\\src\\c.js",
+            "line": 28,
+            "return": {
+                "description": "[返回基础模块的mvc]",
+                "type": "[object]"
+            }
+        }
+    },
+    "classes": {
+        "基础模块类": {
+            "name": "基础模块类",
+            "shortname": "基础模块类",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "基础模块",
+            "namespace": "",
+            "file": "public\\javascripts\\src\\c.js",
+            "line": 8,
+            "type": "{[function]}"
+        },
+        "基础集合类": {
+            "name": "基础集合类",
+            "shortname": "基础集合类",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "基础模块",
+            "namespace": "",
+            "file": "public\\javascripts\\src\\c.js",
+            "line": 18,
+            "type": "{[function]}"
+        },
+        "基础视图类": {
+            "name": "基础视图类",
+            "shortname": "基础视图类",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "基础模块",
+            "namespace": "",
+            "file": "public\\javascripts\\src\\c.js",
+            "line": 28,
+            "type": "{[function]}"
+        }
+    },
+    "classitems": [],
+    "warnings": []
+}

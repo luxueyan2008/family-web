@@ -38,7 +38,8 @@
     "grunt-contrib-copy": "*",
     "grunt-contrib-connect": "*",
     "grunt-cmd-concat": "~0.2.2",
-    "grunt-cmd-transport": "~0.2.1"
+    "grunt-cmd-transport": "~0.2.1",
+    "grunt-contrib-yuidoc": "~0.4.0"
   },
   "keywords": [],
   "dependencies": {

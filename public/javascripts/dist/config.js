@@ -1,11 +1,25 @@
 seajs.config({
     plugins: ["shim"],
-    base: "/javascripts/sea-modules/",
+    base: "/javascripts/dist/",
     alias: {
-        b: "demospm/demo/1.0.0/b",
-        $: {
+        // b: "b",
+        "$": {
             src: "/javascripts/libs/jquery-1.9.1.min.js",
             exports: "jQuery"
-        }
+        },
+        "jquery-ui": {
+            src: "javascripts/libs/jquery-ui-1.8.23.custom.min.js",
+            deps: ["$"]
+        },
+        _: {
+            src: "/javascripts/libs/underscore.min.js",
+            exports: "_"
+        },
+        backbone: {
+            src: "/javascripts/libs/backbone.min.js",
+            deps: ["$","_"],
+            exports: "Backbone"
+        },
+
     }
 });
