@@ -1,17 +1,22 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
-        "基础模块类",
-        "基础视图类",
-        "基础集合类"
+        "BaseCollection",
+        "BaseModel",
+        "BaseView"
     ],
     "modules": [
-        "基础模块"
+        "基础模块",
+        "测试模块"
     ],
     "allModules": [
         {
             "displayName": "基础模块",
             "name": "基础模块"
+        },
+        {
+            "displayName": "测试模块",
+            "name": "测试模块"
         }
     ]
 } };

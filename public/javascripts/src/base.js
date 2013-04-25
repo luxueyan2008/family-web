@@ -6,30 +6,54 @@ define(function(require,exports,module){
     var _ = require('_');
     var B = require('backbone');
     /**
-     * @class 基础模块类
+     * 基础模块类
+     * @class BaseModel
+     * @constructor
      * @type {[function]}
      */
     var BaseModel = B.Model.extend({
         defaults: {
+            /**
+             * @property {string} name
+             * @default ''
+             */
             name: '',
+            /**
+             * @property {string} id
+             * @default ''
+             */
             id: ''
         }
     });
     /**
-     * @class 基础集合类
+     * 基础集合类
+     * @class BaseCollection
+     * @constructor
      * @type {[function]}
      */
     var BaseCollection = B.Collection.extend({
         model: BaseModel,
+        /**
+         * 实例化时的默认执行方法
+         * @method initialize
+         * @return {[object]} new BaseCollection
+         */
         initialize: function(){
             console.log('collection create');
         }
     });
     /**
-     * @class 基础视图类
+     * 基础视图类
+     * @class BaseView
+     * @constructor
      * @type {[function]}
      */
     var BaseView = B.View.extend({
+        /**
+         * 实例化时的默认执行方法
+         * @method initialize
+         * @return {[object]} new BaseView
+         */
        initialize: function(options) {
             this.options = $.extend(this.options, options);
             this.collection = options.collection;

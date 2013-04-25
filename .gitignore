@@ -7,6 +7,7 @@ lib-cov
 *.pid
 *.gz
 *.log
+node_modules/**/*
 .sass*
 %USERPROFILE%
 /public/.sass*

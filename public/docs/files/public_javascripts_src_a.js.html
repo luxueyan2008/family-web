@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>public\javascripts\src\c.js - family-web</title>
+    <title>public\javascripts\src\a.js - family-web</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -90,80 +90,21 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: public\javascripts\src\c.js</h1>
+                        <h1 class="file-heading">File: public\javascripts\src\a.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 /**
- * @module 基础模块
- * @return {[object]}  [返回基础模块的mvc]
+ * @module 测试模块
+ * @return {[object]} seajs模块对象   
  */
-define(function(require,exports,module){
-    var _ = require(&#x27;_&#x27;);
-    var B = require(&#x27;backbone&#x27;);
-    /**
-     * 基础模块类
-     * @class BaseModel
-     * @constructor
-     * @type {[function]}
-     */
-    var BaseModel = B.Model.extend({
-        defaults: {
-            /**
-             * @property {string} name
-             * @default &#x27;&#x27;
-             */
-            name: &#x27;&#x27;,
-            /**
-             * @property {string} id
-             * @default &#x27;&#x27;
-             */
-            id: &#x27;&#x27;
-        }
-    });
-    /**
-     * 基础集合类
-     * @class BaseCollection
-     * @constructor
-     * @type {[function]}
-     */
-    var BaseCollection = B.Collection.extend({
-        model: BaseModel,
-        /**
-         * 实例化时的默认执行方法
-         * @method initialize
-         * @return {[object]} new BaseCollection
-         */
-        initialize: function(){
-            console.log(&#x27;collection create&#x27;);
-        }
-    });
-    /**
-     * 基础视图类
-     * @class BaseView
-     * @constructor
-     * @type {[function]}
-     */
-    var BaseView = B.View.extend({
-        /**
-         * 实例化时的默认执行方法
-         * @method initialize
-         * @return {[object]} new BaseView
-         */
-       initialize: function(options) {
-            this.options = $.extend(this.options, options);
-            this.collection = options.collection;
-            this.collection.bind(&#x27;fetchCompleted:Collection&#x27;, this.render, this);
-            _.bindAll(this, &#x27;render&#x27;); // bind this 上下文环境
-            this.collection.bind(&#x27;change&#x27;, this.render);
-            console.log(&#x27;view create&#x27;);
-        }
-    });
-    module.exports = {
-        Model: BaseModel,
-        Collection: BaseCollection,
-        View: BaseView
-    };
+define(function(require, exports, module){
+	var $ = require(&#x27;$&#x27;);
+	exports.a = function(name){
+        return function(){
+	       console.log($(&#x27;a&#x27;).text()+(&#x27;--你好!&#x27; + (name || &#x27;nobody&#x27;)));
+        };
+	};
 });
     </pre>
 </div>

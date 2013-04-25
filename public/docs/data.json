@@ -6,34 +6,64 @@
         "url": "https://github.com/user/family-web"
     },
     "files": {
+        "public\\javascripts\\src\\a.js": {
+            "name": "public\\javascripts\\src\\a.js",
+            "modules": {
+                "测试模块": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "public\\javascripts\\src\\b.js": {
+            "name": "public\\javascripts\\src\\b.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "public\\javascripts\\src\\c.js": {
             "name": "public\\javascripts\\src\\c.js",
             "modules": {
                 "基础模块": 1
             },
             "classes": {
-                "基础模块类": 1,
-                "基础集合类": 1,
-                "基础视图类": 1
+                "BaseModel": 1,
+                "BaseCollection": 1,
+                "BaseView": 1
             },
             "fors": {},
             "namespaces": {}
         }
     },
     "modules": {
+        "测试模块": {
+            "name": "测试模块",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "public\\javascripts\\src\\a.js",
+            "line": 1,
+            "return": {
+                "description": "seajs模块对象",
+                "type": "[object]"
+            }
+        },
         "基础模块": {
             "name": "基础模块",
             "submodules": {},
             "classes": {
-                "基础模块类": 1,
-                "基础集合类": 1,
-                "基础视图类": 1
+                "BaseModel": 1,
+                "BaseCollection": 1,
+                "BaseView": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
             "file": "public\\javascripts\\src\\c.js",
-            "line": 28,
+            "line": 45,
             "return": {
                 "description": "[返回基础模块的mvc]",
                 "type": "[object]"
@@ -41,9 +71,9 @@
         }
     },
     "classes": {
-        "基础模块类": {
-            "name": "基础模块类",
-            "shortname": "基础模块类",
+        "BaseModel": {
+            "name": "BaseModel",
+            "shortname": "BaseModel",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -53,25 +83,13 @@
             "namespace": "",
             "file": "public\\javascripts\\src\\c.js",
             "line": 8,
+            "description": "基础模块类",
+            "is_constructor": 1,
             "type": "{[function]}"
         },
-        "基础集合类": {
-            "name": "基础集合类",
-            "shortname": "基础集合类",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "基础模块",
-            "namespace": "",
-            "file": "public\\javascripts\\src\\c.js",
-            "line": 18,
-            "type": "{[function]}"
-        },
-        "基础视图类": {
-            "name": "基础视图类",
-            "shortname": "基础视图类",
+        "BaseCollection": {
+            "name": "BaseCollection",
+            "shortname": "BaseCollection",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -81,9 +99,74 @@
             "namespace": "",
             "file": "public\\javascripts\\src\\c.js",
             "line": 28,
+            "description": "基础集合类",
+            "is_constructor": 1,
+            "type": "{[function]}"
+        },
+        "BaseView": {
+            "name": "BaseView",
+            "shortname": "BaseView",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "基础模块",
+            "namespace": "",
+            "file": "public\\javascripts\\src\\c.js",
+            "line": 45,
+            "description": "基础视图类",
+            "is_constructor": 1,
             "type": "{[function]}"
         }
     },
-    "classitems": [],
+    "classitems": [
+        {
+            "file": "public\\javascripts\\src\\c.js",
+            "line": 16,
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "default": "''",
+            "class": "BaseModel",
+            "module": "基础模块"
+        },
+        {
+            "file": "public\\javascripts\\src\\c.js",
+            "line": 21,
+            "itemtype": "property",
+            "name": "id",
+            "type": "String",
+            "default": "''",
+            "class": "BaseModel",
+            "module": "基础模块"
+        },
+        {
+            "file": "public\\javascripts\\src\\c.js",
+            "line": 36,
+            "description": "实例化时的默认执行方法",
+            "itemtype": "method",
+            "name": "initialize",
+            "return": {
+                "description": "new BaseCollection",
+                "type": "[object]"
+            },
+            "class": "BaseCollection",
+            "module": "基础模块"
+        },
+        {
+            "file": "public\\javascripts\\src\\c.js",
+            "line": 52,
+            "description": "实例化时的默认执行方法",
+            "itemtype": "method",
+            "name": "initialize",
+            "return": {
+                "description": "new BaseView",
+                "type": "[object]"
+            },
+            "class": "BaseView",
+            "module": "基础模块"
+        }
+    ],
     "warnings": []
 }
