@@ -61,7 +61,7 @@ app.configure(function(){
     next();
   });
   // app.locals.isDev = true;//全局变量
-  app.use(routes(app));// 这样用的目的是将路由分离出去
+  app.use(routes(app));// 这样用的目的是将路由分离出去,也可以用 app.routes
   app.use(express.static(path.join(__dirname, 'public')));
 });
 

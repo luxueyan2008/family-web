@@ -24,15 +24,30 @@ module.exports = function(grunt) {
     // qunit: {
     //   files: ['test/**/*.html']
     // },
+    clean: {
+      seajs: [
+        // 'public/javascripts/dev/*',
+        'public/javascripts/dist/*',
+        '!public/javascripts/dist/config.js',
+        '!public/javascripts/dist/main.js'
+      ]
+    },
     transport: {
       options: {
         debug:false
       },
-      demo: {
+      dev: {
         files: [{
-          cwd: 'public/javascripts/src',
+          cwd: 'public/javascripts/dev',
           src: '**/*',
           dest: 'public/javascripts/dev'
+        }]
+      },
+      main: {
+        files: [{
+          cwd: 'public/javascripts/dist',
+          src: 'main.js',
+          dest: 'public/javascripts/dist'
         }]
       }
     },
@@ -43,7 +58,7 @@ module.exports = function(grunt) {
         version: '<%= pkg.version %>',
         url: '<%= pkg.homepage %>',
         options: {
-          paths: 'public/javascripts/src',
+          paths: 'public/javascripts/dev',
           outdir: 'public/docs'
         }
       }
@@ -54,7 +69,7 @@ module.exports = function(grunt) {
         // relative: true,
         include: 'all'
       },
-      demo: {
+      dev: {
         // src: 'public/javascripts/dev/b.js',
         // dest: 'public/javascripts/dist/b.js'
         files: [{
@@ -116,6 +131,21 @@ module.exports = function(grunt) {
         }
       }
     },
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          base: '.',
+        }
+      }
+    },
+    qunit: {
+      options: {
+        timeout: 10000,
+        '--cookies-file': 'test/cookies.txt'
+      },
+      all: ['public/test/**/*.html']
+    },
     compass: {
       dist: {
         options: {
@@ -146,16 +176,18 @@ module.exports = function(grunt) {
       // tasks: ['jshint', 'qunit']
     }
   });
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  // grunt.loadNpmTasks('grunt-contrib-qunit');
+  grunt.loadNpmTasks('grunt-contrib-qunit');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-cmd-transport');
   grunt.loadNpmTasks('grunt-cmd-concat');
   grunt.loadNpmTasks('grunt-contrib-yuidoc');
   // grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compass');
-  // grunt.registerTask('test', ['jshint', 'qunit']);
+  grunt.registerTask('test', ['jshint','connect', 'qunit']);
 
   grunt.registerTask('default', ['jshint', 'uglify', 'compass', 'transport', 'concat','yuidoc']);
 

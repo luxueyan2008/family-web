@@ -6,24 +6,8 @@
         "url": "https://github.com/user/family-web"
     },
     "files": {
-        "public\\javascripts\\src\\a.js": {
-            "name": "public\\javascripts\\src\\a.js",
-            "modules": {
-                "测试模块": 1
-            },
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "public\\javascripts\\src\\b.js": {
-            "name": "public\\javascripts\\src\\b.js",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "public\\javascripts\\src\\c.js": {
-            "name": "public\\javascripts\\src\\c.js",
+        "public\\javascripts\\dev\\base.js": {
+            "name": "public\\javascripts\\dev\\base.js",
             "modules": {
                 "基础模块": 1
             },
@@ -37,20 +21,6 @@
         }
     },
     "modules": {
-        "测试模块": {
-            "name": "测试模块",
-            "submodules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {},
-            "tag": "module",
-            "file": "public\\javascripts\\src\\a.js",
-            "line": 1,
-            "return": {
-                "description": "seajs模块对象",
-                "type": "[object]"
-            }
-        },
         "基础模块": {
             "name": "基础模块",
             "submodules": {},
@@ -62,7 +32,7 @@
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "public\\javascripts\\src\\c.js",
+            "file": "public\\javascripts\\dev\\base.js",
             "line": 45,
             "return": {
                 "description": "[返回基础模块的mvc]",
@@ -81,7 +51,7 @@
             "extension_for": [],
             "module": "基础模块",
             "namespace": "",
-            "file": "public\\javascripts\\src\\c.js",
+            "file": "public\\javascripts\\dev\\base.js",
             "line": 8,
             "description": "基础模块类",
             "is_constructor": 1,
@@ -97,7 +67,7 @@
             "extension_for": [],
             "module": "基础模块",
             "namespace": "",
-            "file": "public\\javascripts\\src\\c.js",
+            "file": "public\\javascripts\\dev\\base.js",
             "line": 28,
             "description": "基础集合类",
             "is_constructor": 1,
@@ -113,7 +83,7 @@
             "extension_for": [],
             "module": "基础模块",
             "namespace": "",
-            "file": "public\\javascripts\\src\\c.js",
+            "file": "public\\javascripts\\dev\\base.js",
             "line": 45,
             "description": "基础视图类",
             "is_constructor": 1,
@@ -122,7 +92,7 @@
     },
     "classitems": [
         {
-            "file": "public\\javascripts\\src\\c.js",
+            "file": "public\\javascripts\\dev\\base.js",
             "line": 16,
             "itemtype": "property",
             "name": "name",
@@ -132,7 +102,7 @@
             "module": "基础模块"
         },
         {
-            "file": "public\\javascripts\\src\\c.js",
+            "file": "public\\javascripts\\dev\\base.js",
             "line": 21,
             "itemtype": "property",
             "name": "id",
@@ -142,7 +112,7 @@
             "module": "基础模块"
         },
         {
-            "file": "public\\javascripts\\src\\c.js",
+            "file": "public\\javascripts\\dev\\base.js",
             "line": 36,
             "description": "实例化时的默认执行方法",
             "itemtype": "method",
@@ -155,7 +125,7 @@
             "module": "基础模块"
         },
         {
-            "file": "public\\javascripts\\src\\c.js",
+            "file": "public\\javascripts\\dev\\base.js",
             "line": 52,
             "description": "实例化时的默认执行方法",
             "itemtype": "method",
